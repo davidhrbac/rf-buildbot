@@ -1,5 +1,5 @@
 #!/bin/bash
-_DEBUG="on"
+_DEBUG="off"
 
 function DEBUG()
 {
@@ -85,7 +85,7 @@ else
         COMMENT="$COMMENT\\r\\n$WGET"
       done
       COMMENT="{ \"body\": \"#### spectool & wget status\\r\\n\`\`\`$COMMENT\`\`\`\"}"
-      echo $COMMENT
+      DEBUG echo $COMMENT
       curl -s -H "Authorization: token $GH_TOKEN" -d "$COMMENT" -X POST https://api.github.com/repos/$GH_USER/$GH_REPO/commits/$COMMIT/comments
 
 
